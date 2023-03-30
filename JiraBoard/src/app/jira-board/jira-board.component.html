@@ -1,0 +1,25 @@
+<div class="container">
+        <button type="button" (click)="addist()">Add List</button>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let list of lists; let i = index">
+            <div class="card">
+                <div class="col-md-12">
+                </div>
+                <div style="height:650px" class="card-body">
+                    <div style="display: flex;"><h5 class="text-center">{{list.header}}</h5>
+                        <button class="" (click)="deleteLists(i)">X</button>
+                    </div>                   
+                    <div style="height:auto" *ngFor="let card of list.cards; let j = index">
+                        <div class="card">
+                            <div class="card-header">{{card.header}}</div>
+                            <div class="card-desc">{{card.desc}} </div>
+                            <div class="card-creation-time">{{card.created |date:'medium'}} </div>
+                            <button class="card-delete-button" (click)="deleteCard(j,i)">X</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-add-button text-center btn btn-primary" style="font-weight: bold;" (click)="addCard(i)">+</div>
+            </div>
+        </div>
+    </div>
+</div>
